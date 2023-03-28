@@ -1,0 +1,1 @@
+drop tablespace trvl_tablespace including contents;
