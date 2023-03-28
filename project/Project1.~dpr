@@ -2,14 +2,14 @@ program Project1;
 
 uses
   Forms,
-  Unit1 in 'Unit1.pas' {FormMain},
+  Unit1 in 'Unit1.pas' {Form1},
   UnitClientEditor in 'UnitClientEditor.pas' {FormClientEditor};
 
 {$R *.res}
 
 begin
   Application.Initialize;
-  Application.CreateForm(TFormMain, FormMain);
+  Application.CreateForm(TForm1, Form1);
   Application.CreateForm(TFormClientEditor, FormClientEditor);
   Application.Run;
 end.
