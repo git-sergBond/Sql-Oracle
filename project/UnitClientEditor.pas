@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Grids, DBGrids, ExtCtrls, DBCtrls, DB, OracleData;
+  Dialogs, Grids, DBGrids, ExtCtrls, DBCtrls, DB, OracleData, StdCtrls,
+  Mask, ComCtrls;
 
 type
   TFormClientEditor = class(TForm)
@@ -12,6 +13,7 @@ type
     DBNavigator1: TDBNavigator;
     OracleDataSet1: TOracleDataSet;
     DataSource1: TDataSource;
+    DBRichEdit1: TDBRichEdit;
   private
     { Private declarations }
   public

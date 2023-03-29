@@ -1,8 +1,8 @@
 object FormClientEditor: TFormClientEditor
   Left = 1184
   Top = 170
-  Width = 586
-  Height = 416
+  Width = 503
+  Height = 635
   Caption = #1057#1087#1088#1072#1074#1086#1095#1085#1080#1082' '#1082#1083#1080#1077#1085#1090#1086#1074
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -16,7 +16,7 @@ object FormClientEditor: TFormClientEditor
   object DBGrid1: TDBGrid
     Left = 8
     Top = 48
-    Width = 561
+    Width = 481
     Height = 329
     DataSource = DataSource1
     TabOrder = 0
@@ -59,21 +59,24 @@ object FormClientEditor: TFormClientEditor
         Title.Caption = #1058#1077#1083#1077#1092#1086#1085
         Width = 100
         Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'PASSPORT'
-        Title.Caption = #1055#1072#1089#1087#1086#1088#1090#1085#1099#1077' '#1076#1072#1085#1085#1099#1077
-        Visible = True
       end>
   end
   object DBNavigator1: TDBNavigator
     Left = 8
     Top = 8
-    Width = 450
+    Width = 420
     Height = 33
     DataSource = DataSource1
     TabOrder = 1
+  end
+  object DBRichEdit1: TDBRichEdit
+    Left = 8
+    Top = 384
+    Width = 481
+    Height = 217
+    DataField = 'PASSPORT'
+    DataSource = DataSource1
+    TabOrder = 2
   end
   object OracleDataSet1: TOracleDataSet
     SQL.Strings = (
@@ -88,12 +91,12 @@ object FormClientEditor: TFormClientEditor
       5254010000000000}
     Session = FormMain.OracleSession1
     Active = True
-    Left = 464
+    Left = 432
     Top = 8
   end
   object DataSource1: TDataSource
     DataSet = OracleDataSet1
-    Left = 504
+    Left = 464
     Top = 8
   end
 end

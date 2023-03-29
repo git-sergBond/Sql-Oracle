@@ -1,8 +1,8 @@
 object FormClientEditor: TFormClientEditor
   Left = 1184
   Top = 170
-  Width = 584
-  Height = 415
+  Width = 596
+  Height = 652
   Caption = #1057#1087#1088#1072#1074#1086#1095#1085#1080#1082' '#1082#1083#1080#1077#1085#1090#1086#1074
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -13,6 +13,14 @@ object FormClientEditor: TFormClientEditor
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
+  object DBText1: TDBText
+    Left = 8
+    Top = 384
+    Width = 289
+    Height = 233
+    DataField = 'PASSPORT'
+    DataSource = DataSource1
+  end
   object DBGrid1: TDBGrid
     Left = 8
     Top = 48
@@ -74,6 +82,15 @@ object FormClientEditor: TFormClientEditor
     Height = 33
     DataSource = DataSource1
     TabOrder = 1
+  end
+  object DBRichEdit1: TDBRichEdit
+    Left = 320
+    Top = 392
+    Width = 241
+    Height = 217
+    DataField = 'PASSPORT'
+    DataSource = DataSource1
+    TabOrder = 2
   end
   object OracleDataSet1: TOracleDataSet
     SQL.Strings = (
