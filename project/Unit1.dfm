@@ -28,6 +28,7 @@ object FormMain: TFormMain
     Height = 33
     Caption = #1057#1087#1088#1072#1074#1086#1095#1085#1080#1082' '#1090#1091#1088#1086#1074
     TabOrder = 1
+    OnClick = ButtonTourEditorClick
   end
   object ButtonSales: TButton
     Left = 8

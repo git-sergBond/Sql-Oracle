@@ -1,6 +1,6 @@
 object FormEmployee: TFormEmployee
-  Left = 247
-  Top = 223
+  Left = 1350
+  Top = 512
   Width = 505
   Height = 411
   Caption = #1057#1086#1090#1088#1091#1076#1085#1080#1082#1080
