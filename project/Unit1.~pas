@@ -4,12 +4,11 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Oracle, DB, OracleData, StdCtrls, UnitClientEditor;
+  Dialogs, Oracle, DB, OracleData, StdCtrls, UnitClientEditor, UnitEmployee;
 
 type
   TFormMain = class(TForm)
     OracleSession1: TOracleSession;
-    OracleDataSet1: TOracleDataSet;
     OracleQuery1: TOracleQuery;
     ButtonBuyTour: TButton;
     ButtonTourEditor: TButton;
@@ -18,7 +17,6 @@ type
     ButtonEmployeeEditor: TButton;
     ButtonRefundTour: TButton;
     ButtonRefundsEditor: TButton;
-    DataSource1: TDataSource;
     procedure ButtonClientEditorClick(Sender: TObject);
   private
     { Private declarations }

@@ -14,6 +14,7 @@ type
     OracleDataSet1: TOracleDataSet;
     DataSource1: TDataSource;
     DBRichEdit1: TDBRichEdit;
+    Label1: TLabel;
   private
     { Private declarations }
   public

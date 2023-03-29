@@ -1,9 +1,9 @@
-object FormClientEditor: TFormClientEditor
-  Left = 1184
-  Top = 170
-  Width = 503
-  Height = 664
-  Caption = #1057#1087#1088#1072#1074#1086#1095#1085#1080#1082' '#1082#1083#1080#1077#1085#1090#1086#1074
+object FormEmployee: TFormEmployee
+  Left = 247
+  Top = 223
+  Width = 505
+  Height = 411
+  Caption = #1057#1086#1090#1088#1091#1076#1085#1080#1082#1080
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,12 +13,13 @@ object FormClientEditor: TFormClientEditor
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object Label1: TLabel
+  object DBNavigator1: TDBNavigator
     Left = 8
-    Top = 392
-    Width = 107
-    Height = 13
-    Caption = #1055#1072#1089#1087#1086#1088#1090#1085#1099#1077' '#1076#1072#1085#1085#1099#1077':'
+    Top = 8
+    Width = 420
+    Height = 33
+    DataSource = DataSource1
+    TabOrder = 0
   end
   object DBGrid1: TDBGrid
     Left = 8
@@ -26,7 +27,7 @@ object FormClientEditor: TFormClientEditor
     Width = 481
     Height = 329
     DataSource = DataSource1
-    TabOrder = 0
+    TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
@@ -36,7 +37,7 @@ object FormClientEditor: TFormClientEditor
       item
         Expanded = False
         FieldName = 'ID'
-        Width = 35
+        Width = 30
         Visible = True
       end
       item
@@ -68,34 +69,16 @@ object FormClientEditor: TFormClientEditor
         Visible = True
       end>
   end
-  object DBNavigator1: TDBNavigator
-    Left = 8
-    Top = 8
-    Width = 420
-    Height = 33
-    DataSource = DataSource1
-    TabOrder = 1
-  end
-  object DBRichEdit1: TDBRichEdit
-    Left = 8
-    Top = 408
-    Width = 481
-    Height = 217
-    DataField = 'PASSPORT'
-    DataSource = DataSource1
-    TabOrder = 2
-  end
   object OracleDataSet1: TOracleDataSet
     SQL.Strings = (
-      'select t.*, t.rowid from TRVL_CLIENT t')
+      'select t.*, t.rowid  from TRVL_EMPLOYEE t')
     SequenceField.Field = 'ID'
     SequenceField.Sequence = 'TRVL_CLIENT_ID_SEQ'
     SequenceField.ApplyMoment = amOnNewRecord
     QBEDefinition.QBEFieldDefs = {
-      0400000006000000020000004944010000000000040000004E414D4501000000
+      0400000005000000020000004944010000000000040000004E414D4501000000
       0000070000005355524E414D450100000000000A000000504154524F4E594D49
-      430100000000000500000050484F4E450100000000000800000050415353504F
-      5254010000000000}
+      430100000000000500000050484F4E45010000000000}
     Session = FormMain.OracleSession1
     Active = True
     Left = 432

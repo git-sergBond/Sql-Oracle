@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Oracle, DB, OracleData, StdCtrls, UnitClientEditor;
+  Dialogs, Oracle, DB, OracleData, StdCtrls, UnitClientEditor, UnitEmployee;
 
 type
   TFormMain = class(TForm)
@@ -18,6 +18,7 @@ type
     ButtonRefundTour: TButton;
     ButtonRefundsEditor: TButton;
     procedure ButtonClientEditorClick(Sender: TObject);
+    procedure ButtonEmployeeEditorClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -34,6 +35,11 @@ implementation
 procedure TFormMain.ButtonClientEditorClick(Sender: TObject);
 begin
 FormClientEditor.Show;
+end;
+
+procedure TFormMain.ButtonEmployeeEditorClick(Sender: TObject);
+begin
+FormEmployee.Show;
 end;
 
 end.
