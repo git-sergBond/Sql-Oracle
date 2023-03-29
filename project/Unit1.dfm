@@ -78,29 +78,8 @@ object FormMain: TFormMain
     Left = 8
     Top = 8
   end
-  object OracleDataSet1: TOracleDataSet
-    SQL.Strings = (
-      'select t.*, t.rowid from TRVL_CLIENT t')
-    SequenceField.Field = 'ID'
-    SequenceField.Sequence = 'TRVL_CLIENT_ID_SEQ'
-    SequenceField.ApplyMoment = amOnNewRecord
-    QBEDefinition.QBEFieldDefs = {
-      0400000006000000020000004944010000000000040000004E414D4501000000
-      0000070000005355524E414D450100000000000A000000504154524F4E594D49
-      430100000000000500000050484F4E450100000000000800000050415353504F
-      5254010000000000}
-    Session = OracleSession1
-    Active = True
-    Left = 48
-    Top = 8
-  end
   object OracleQuery1: TOracleQuery
-    Left = 88
-    Top = 8
-  end
-  object DataSource1: TDataSource
-    DataSet = OracleDataSet1
-    Left = 128
+    Left = 48
     Top = 8
   end
 end

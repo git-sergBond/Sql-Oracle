@@ -9,7 +9,6 @@ uses
 type
   TFormMain = class(TForm)
     OracleSession1: TOracleSession;
-    OracleDataSet1: TOracleDataSet;
     OracleQuery1: TOracleQuery;
     ButtonBuyTour: TButton;
     ButtonTourEditor: TButton;
@@ -18,7 +17,6 @@ type
     ButtonEmployeeEditor: TButton;
     ButtonRefundTour: TButton;
     ButtonRefundsEditor: TButton;
-    DataSource1: TDataSource;
     procedure ButtonClientEditorClick(Sender: TObject);
   private
     { Private declarations }
