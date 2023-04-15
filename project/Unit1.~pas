@@ -4,22 +4,22 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Oracle, DB, OracleData, StdCtrls, UnitClientEditor, UnitEmployee, UnitToursEditor;
+  Dialogs, Oracle, DB, OracleData, StdCtrls, UnitClientEditor, UnitEmployee, UnitToursEditor, UnitSalesEditor, UnitRefundsEditor;
 
 type
   TFormMain = class(TForm)
     OracleSession1: TOracleSession;
     OracleQuery1: TOracleQuery;
-    ButtonBuyTour: TButton;
     ButtonTourEditor: TButton;
     ButtonSales: TButton;
     ButtonClientEditor: TButton;
     ButtonEmployeeEditor: TButton;
-    ButtonRefundTour: TButton;
     ButtonRefundsEditor: TButton;
     procedure ButtonClientEditorClick(Sender: TObject);
     procedure ButtonEmployeeEditorClick(Sender: TObject);
     procedure ButtonTourEditorClick(Sender: TObject);
+    procedure ButtonSalesClick(Sender: TObject);
+    procedure ButtonRefundsEditorClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -45,7 +45,17 @@ end;
 
 procedure TFormMain.ButtonTourEditorClick(Sender: TObject);
 begin
-Form
+FormTours.Show;
+end;
+
+procedure TFormMain.ButtonSalesClick(Sender: TObject);
+begin
+ FormSales.Show;
+end;
+
+procedure TFormMain.ButtonRefundsEditorClick(Sender: TObject);
+begin
+FormRefunds.Show;
 end;
 
 end.

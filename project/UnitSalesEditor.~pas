@@ -1,0 +1,29 @@
+unit UnitSalesEditor;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, DB, OracleData, Grids, DBGrids, ExtCtrls, DBCtrls;
+
+type
+  TSales = class(TForm)
+    DBNavigator1: TDBNavigator;
+    DBGrid1: TDBGrid;
+    OracleDataSet1: TOracleDataSet;
+    DataSource1: TDataSource;
+    ButtonBuyTour: TButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Sales: TSales;
+
+implementation
+
+{$R *.dfm}
+
+end.
