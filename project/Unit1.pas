@@ -24,6 +24,15 @@ type
     frxReport1: TfrxReport;
     frxChartObject1: TfrxChartObject;
     OracleDataSetTopTours1: TOracleDataSet;
+    Button3: TButton;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Edit4: TEdit;
     procedure ButtonClientEditorClick(Sender: TObject);
     procedure ButtonEmployeeEditorClick(Sender: TObject);
     procedure ButtonTourEditorClick(Sender: TObject);
@@ -31,6 +40,7 @@ type
     procedure ButtonRefundsEditorClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -156,6 +166,29 @@ end;
 procedure TFormMain.Button2Click(Sender: TObject);
 begin
 frxReport1.ShowReport;
+end;
+
+// Функция находит текстовую константу и подставляет на ее место нужный текст
+function FindAndInsert(W : variant; FindText, ReplacementText : string) : boolean;
+const wdReplaceAll=2;
+begin
+W.Selection.Find.Text:=FindText;
+W.Selection.Find.Replacement.Text:=ReplacementText;
+FindAndInsert:=W.Selection.Find.Execute(Replace:=wdReplaceAll);
+End;
+
+procedure TFormMain.Button3Click(Sender: TObject);
+VAR
+W:variant;
+begin
+W:=CreateOleObject('Word.Application');
+W.Visible:=true;
+W.documents.Add(ExtractFileDir(Application.ExeName)+'\Doc1.doc');
+//открываем файл шаблона
+FindAndInsert(W, '##Edit1', Edit1.Text); // Меняем слово ##Edit1 на шаблоне на нужную нам фразу
+FindAndInsert(W, '##Edit2', Edit2.Text);
+FindAndInsert(W, '##Edit3', Edit3.Text);
+FindAndInsert(W, '##Edit4', Edit4.Text);
 end;
 
 end.

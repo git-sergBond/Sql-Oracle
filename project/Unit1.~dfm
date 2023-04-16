@@ -1,8 +1,8 @@
 object FormMain: TFormMain
   Left = 824
   Top = 167
-  Width = 539
-  Height = 361
+  Width = 410
+  Height = 435
   Caption = #1058#1091#1088#1080#1089#1090#1080#1095#1077#1089#1082#1086#1077' '#1072#1075#1077#1085#1090#1089#1090#1074#1086
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -13,6 +13,34 @@ object FormMain: TFormMain
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
+  object Label1: TLabel
+    Left = 8
+    Top = 160
+    Width = 36
+    Height = 13
+    Caption = 'ID '#1090#1091#1088#1072
+  end
+  object Label2: TLabel
+    Left = 8
+    Top = 184
+    Width = 55
+    Height = 13
+    Caption = 'ID '#1082#1083#1080#1077#1085#1090#1072
+  end
+  object Label3: TLabel
+    Left = 8
+    Top = 208
+    Width = 103
+    Height = 13
+    Caption = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1073#1080#1083#1077#1090#1086#1074
+  end
+  object Label4: TLabel
+    Left = 8
+    Top = 232
+    Width = 58
+    Height = 13
+    Caption = #1057#1091#1084#1084#1072' '#1056#1091#1073'.'
+  end
   object ButtonTourEditor: TButton
     Left = 152
     Top = 48
@@ -59,8 +87,8 @@ object FormMain: TFormMain
     OnClick = ButtonRefundsEditorClick
   end
   object Button1: TButton
-    Left = 8
-    Top = 144
+    Left = 200
+    Top = 320
     Width = 185
     Height = 33
     Caption = #1042#1099#1075#1088#1091#1079#1082#1072' '#1076#1072#1085#1085#1099#1093' '#1086' '#1090#1091#1088#1072#1093' '#1074' Excel'
@@ -68,13 +96,54 @@ object FormMain: TFormMain
     OnClick = Button1Click
   end
   object Button2: TButton
-    Left = 8
-    Top = 184
+    Left = 200
+    Top = 360
     Width = 185
     Height = 33
     Caption = #1054#1090#1095#1077#1090' '#1074' FastReport'
     TabOrder = 6
     OnClick = Button2Click
+  end
+  object Button3: TButton
+    Left = 8
+    Top = 256
+    Width = 177
+    Height = 33
+    Caption = #1055#1077#1095#1072#1090#1100' '#1095#1077#1082#1072
+    TabOrder = 7
+    OnClick = Button3Click
+  end
+  object Edit1: TEdit
+    Left = 72
+    Top = 160
+    Width = 113
+    Height = 21
+    TabOrder = 8
+    Text = 'Edit1'
+  end
+  object Edit2: TEdit
+    Left = 72
+    Top = 184
+    Width = 113
+    Height = 21
+    TabOrder = 9
+    Text = 'Edit1'
+  end
+  object Edit3: TEdit
+    Left = 120
+    Top = 208
+    Width = 65
+    Height = 21
+    TabOrder = 10
+    Text = 'Edit1'
+  end
+  object Edit4: TEdit
+    Left = 72
+    Top = 232
+    Width = 113
+    Height = 21
+    TabOrder = 11
+    Text = 'Edit1'
   end
   object OracleSession1: TOracleSession
     LogonUsername = 'trvl_owner'
@@ -108,16 +177,16 @@ object FormMain: TFormMain
       54010000000000}
     Session = OracleSession1
     Active = True
-    Left = 200
-    Top = 144
+    Left = 152
+    Top = 320
   end
   object frxDBDataset1: TfrxDBDataset
     UserName = 'frxDBDataset1'
     CloseDataSource = False
     DataSet = OracleDataSetTopTours1
     BCDToCurrency = False
-    Left = 232
-    Top = 184
+    Left = 88
+    Top = 360
   end
   object frxReport1: TfrxReport
     Version = '4.7.37'
@@ -135,8 +204,8 @@ object FormMain: TFormMain
       'begin'
       ''
       'end.')
-    Left = 264
-    Top = 184
+    Left = 120
+    Top = 360
     Datasets = <
       item
         DataSet = frxDBDataset1
@@ -364,8 +433,8 @@ object FormMain: TFormMain
     end
   end
   object frxChartObject1: TfrxChartObject
-    Left = 296
-    Top = 184
+    Left = 152
+    Top = 360
   end
   object OracleDataSetTopTours1: TOracleDataSet
     SQL.Strings = (
@@ -394,7 +463,7 @@ object FormMain: TFormMain
       0000544F54414C010000000000}
     Session = OracleSession1
     Active = True
-    Left = 200
-    Top = 184
+    Left = 56
+    Top = 360
   end
 end
