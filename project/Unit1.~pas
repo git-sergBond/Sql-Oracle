@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Oracle, DB, OracleData, StdCtrls,
   UnitClientEditor, UnitEmployee, UnitToursEditor, UnitSalesEditor, UnitRefundsEditor,
-  ComObj;
+  ComObj, frxChart, frxClass, frxDBSet;
 
 type
   TFormMain = class(TForm)
@@ -19,12 +19,18 @@ type
     ButtonRefundsEditor: TButton;
     Button1: TButton;
     OracleDataSetTours1: TOracleDataSet;
+    Button2: TButton;
+    frxDBDataset1: TfrxDBDataset;
+    frxReport1: TfrxReport;
+    frxChartObject1: TfrxChartObject;
+    OracleDataSetTopTours1: TOracleDataSet;
     procedure ButtonClientEditorClick(Sender: TObject);
     procedure ButtonEmployeeEditorClick(Sender: TObject);
     procedure ButtonTourEditorClick(Sender: TObject);
     procedure ButtonSalesClick(Sender: TObject);
     procedure ButtonRefundsEditorClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -147,4 +153,9 @@ begin
   OracleDataSetTours1.Next;
 end;
 end;
+procedure TFormMain.Button2Click(Sender: TObject);
+begin
+frxReport1.ShowReport;
+end;
+
 end.
