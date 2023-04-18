@@ -13,6 +13,12 @@ object FormRegisterSale: TFormRegisterSale
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
+  object LabelUserID: TLabel
+    Left = 184
+    Top = 232
+    Width = 3
+    Height = 13
+  end
   object GroupBox1: TGroupBox
     Left = 8
     Top = 8
@@ -67,6 +73,7 @@ object FormRegisterSale: TFormRegisterSale
     Height = 25
     Caption = '2. '#1042#1099#1073#1088#1072#1090#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
     TabOrder = 3
+    OnClick = ButtonSelectUserClick
   end
   object GroupBox2: TGroupBox
     Left = 8

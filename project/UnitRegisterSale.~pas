@@ -26,7 +26,9 @@ type
     Button3: TButton;
     ListBox1: TListBox;
     Button4: TButton;
+    LabelUserID: TLabel;
     procedure ButtonFindUserClick(Sender: TObject);
+    procedure ButtonSelectUserClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -63,14 +65,37 @@ begin
     while not OracleDataSet1.Eof do
     begin
       userInfo :=
+      IntToStr(OracleDataSet1.FieldValues['id']) + '# ' +
       OracleDataSet1.FieldValues['name'] + ',' +
       OracleDataSet1.FieldValues['surname'] + ',' +
       OracleDataSet1.FieldValues['patronymic'] + ',' +
       OracleDataSet1.FieldValues['phone'];
+      //
       ListBoxUsers.Items.Add(userInfo);
+      //
       OracleDataSet1.Next;
     end;
  end;
+end;
+
+procedure TFormRegisterSale.ButtonSelectUserClick(Sender: TObject);
+var selectedItem, id : string;
+I,X: Integer;
+begin
+selectedItem := ListBoxUsers.Items[ListBoxUsers.ItemIndex];
+
+I:=0;
+id:='';
+while I <= Length(selectedItem) do
+begin
+  if selectedItem[I] = '#' then
+  begin
+    Break;
+  end;
+  id := id + selectedItem[I]
+end;
+
+LabelUserID.Caption := id;
 end;
 
 end.
