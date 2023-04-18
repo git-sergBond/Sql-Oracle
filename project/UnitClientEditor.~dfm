@@ -1,6 +1,6 @@
 object FormClientEditor: TFormClientEditor
-  Left = 1184
-  Top = 170
+  Left = 270
+  Top = 163
   Width = 503
   Height = 664
   Caption = #1057#1087#1088#1072#1074#1086#1095#1085#1080#1082' '#1082#1083#1080#1077#1085#1090#1086#1074

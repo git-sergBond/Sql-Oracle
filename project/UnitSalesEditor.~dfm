@@ -1,4 +1,4 @@
-object Sales: TSales
+object FormSales: TFormSales
   Left = 275
   Top = 355
   Width = 539
