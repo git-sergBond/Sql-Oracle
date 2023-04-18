@@ -29,6 +29,7 @@ object FormRegisterSale: TFormRegisterSale
       EditLabel.Height = 13
       EditLabel.Caption = #1055#1072#1089#1087#1086#1088#1090' '#1085#1086#1084#1077#1088
       TabOrder = 0
+      Text = '788443'
     end
     object LabeledEditPasportSer: TLabeledEdit
       Left = 8
@@ -39,6 +40,7 @@ object FormRegisterSale: TFormRegisterSale
       EditLabel.Height = 13
       EditLabel.Caption = #1055#1072#1089#1087#1086#1088#1090' '#1089#1077#1088#1080#1103
       TabOrder = 1
+      Text = '4069'
     end
   end
   object ButtonFindUser: TButton

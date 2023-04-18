@@ -42,13 +42,20 @@ implementation
 
 procedure TFormRegisterSale.ButtonFindUserClick(Sender: TObject);
 const SEARCH_USER_SQL = 'select * from TRVL_CLIENT t;';
-var userInfo : string;
+var pasportSer, pasportNo, userInfo: string;
 begin
+  //READ FIELDS
+  pasportSer := LabeledEditPasportSer.Text;
+  pasportNo := LabeledEditPasportNo.Text;
+
+  //SELECT FROM DB
   with OracleDataSet1 do
   begin
     OracleDataSet1.Active:=false;
     OracleDataSet1.SQL.Clear;
-    OracleDataSet1.SQL.Add('select t.* from TRVL_CLIENT t');
+    OracleDataSet1.SQL.Add('select t.* from TRVL_CLIENT t ');
+    OracleDataSet1.SQL.Add('where t. passport LIKE ');
+    OracleDataSet1.SQL.Add('''%'+pasportSer+'%'+pasportNo+'%''');
     OracleDataSet1.Active:=true;
 
     ListBoxUsers.Clear;
