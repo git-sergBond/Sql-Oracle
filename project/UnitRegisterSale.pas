@@ -42,8 +42,7 @@ implementation
 
 procedure TFormRegisterSale.ButtonFindUserClick(Sender: TObject);
 const SEARCH_USER_SQL = 'select * from TRVL_CLIENT t;';
-var
-name, surname, patronymic, phone, userInfo : string;
+var userInfo : string;
 begin
   with OracleDataSet1 do
   begin
@@ -56,12 +55,12 @@ begin
     OracleDataSet1.First;
     while not OracleDataSet1.Eof do
     begin
-      name:=OracleDataSet1.FieldValues['name'];
-      surname:=OracleDataSet1.FieldValues['surname'];
-      patronymic:=OracleDataSet1.FieldValues['patronymic'];
-      phone:=OracleDataSet1.FieldValues['phone'];
-      //userInfo:= name + ',' + surname + ',' + patronymic + ',' +  phone;
-      //ListBoxUsers.Items.Add(userInfo);
+      userInfo :=
+      OracleDataSet1.FieldValues['name'] + ',' +
+      OracleDataSet1.FieldValues['surname'] + ',' +
+      OracleDataSet1.FieldValues['patronymic'] + ',' +
+      OracleDataSet1.FieldValues['phone'];
+      ListBoxUsers.Items.Add(userInfo);
       OracleDataSet1.Next;
     end;
  end;
