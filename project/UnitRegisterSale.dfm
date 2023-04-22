@@ -1,8 +1,8 @@
 object FormRegisterSale: TFormRegisterSale
-  Left = 1294
-  Top = 142
-  Width = 316
-  Height = 751
+  Left = 1239
+  Top = 143
+  Width = 314
+  Height = 691
   Caption = #1047#1072#1082#1072#1079#1072#1090#1100' '#1090#1091#1088
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -16,13 +16,13 @@ object FormRegisterSale: TFormRegisterSale
   object LabelUserID: TLabel
     Left = 184
     Top = 232
-    Width = 113
+    Width = 3
     Height = 13
   end
   object LabelTourID: TLabel
     Left = 176
     Top = 488
-    Width = 121
+    Width = 3
     Height = 13
   end
   object GroupBox1: TGroupBox
@@ -85,41 +85,44 @@ object FormRegisterSale: TFormRegisterSale
     Left = 8
     Top = 512
     Width = 289
-    Height = 169
+    Height = 65
     Caption = #1047#1072#1087#1086#1083#1085#1077#1085#1080#1077' '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1080' '#1087#1086' '#1090#1091#1088#1091
     TabOrder = 4
-    object LabeledEdit1: TLabeledEdit
+    object LabeledEditCount: TLabeledEdit
       Left = 144
       Top = 32
       Width = 121
       Height = 21
-      EditLabel.Width = 78
+      EditLabel.Width = 103
       EditLabel.Height = 13
-      EditLabel.Caption = #1055#1072#1089#1087#1086#1088#1090' '#1085#1086#1084#1077#1088
+      EditLabel.Caption = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1073#1080#1083#1077#1090#1086#1074
       TabOrder = 0
+      Text = '1'
     end
-    object LabeledEdit2: TLabeledEdit
+    object LabeledEditEmployeeId: TLabeledEdit
       Left = 8
       Top = 32
       Width = 121
       Height = 21
-      EditLabel.Width = 76
+      EditLabel.Width = 72
       EditLabel.Height = 13
-      EditLabel.Caption = #1055#1072#1089#1087#1086#1088#1090' '#1089#1077#1088#1080#1103
+      EditLabel.Caption = 'ID '#1089#1086#1090#1088#1091#1076#1085#1080#1082#1072
       TabOrder = 1
+      Text = '4'
     end
   end
   object Button1: TButton
     Left = 8
-    Top = 688
-    Width = 169
+    Top = 624
+    Width = 97
     Height = 25
-    Caption = '3. '#1044#1086#1073#1072#1074#1080#1090#1100' / '#1054#1073#1085#1086#1074#1080#1090#1100
+    Caption = '3. '#1044#1086#1073#1072#1074#1080#1090#1100
     TabOrder = 5
+    OnClick = Button1Click
   end
   object Button2: TButton
     Left = 208
-    Top = 688
+    Top = 624
     Width = 89
     Height = 25
     Caption = #1059#1076#1072#1083#1080#1090#1100
@@ -170,6 +173,14 @@ object FormRegisterSale: TFormRegisterSale
     TabOrder = 10
     OnClick = Button4Click
   end
+  object Button5: TButton
+    Left = 120
+    Top = 624
+    Width = 75
+    Height = 25
+    Caption = #1054#1073#1085#1086#1074#1080#1090#1100
+    TabOrder = 11
+  end
   object OracleDataSet1: TOracleDataSet
     SQL.Strings = (
       'select t.*, t.rowid from TRVL_CLIENT t')
@@ -184,11 +195,6 @@ object FormRegisterSale: TFormRegisterSale
     Session = FormMain.OracleSession1
     Active = True
     Left = 96
-    Top = 80
-  end
-  object DataSource1: TDataSource
-    DataSet = OracleDataSet1
-    Left = 128
     Top = 80
   end
 end

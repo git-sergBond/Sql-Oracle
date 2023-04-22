@@ -15,10 +15,9 @@ type
     ListBoxUsers: TListBox;
     ButtonSelectUser: TButton;
     OracleDataSet1: TOracleDataSet;
-    DataSource1: TDataSource;
     GroupBox2: TGroupBox;
-    LabeledEdit1: TLabeledEdit;
-    LabeledEdit2: TLabeledEdit;
+    LabeledEditCount: TLabeledEdit;
+    LabeledEditEmployeeId: TLabeledEdit;
     Button1: TButton;
     Button2: TButton;
     GroupBox3: TGroupBox;
@@ -28,10 +27,12 @@ type
     Button4: TButton;
     LabelUserID: TLabel;
     LabelTourID: TLabel;
+    Button5: TButton;
     procedure ButtonFindUserClick(Sender: TObject);
     procedure ButtonSelectUserClick(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -142,6 +143,28 @@ begin
 index := ListBoxTours.ItemIndex;
 selectedUserId := tourIdArray[index];
 LabelTourID.Caption := 'Tour ID: ' + IntToStr(selectedUserId);
+end;
+
+procedure TFormRegisterSale.Button1Click(Sender: TObject);
+begin
+  with OracleDataSet1 do
+  begin
+    OracleDataSet1.SQL.Clear;
+    OracleDataSet1.SQL.Add('INSERT INTO TRVL_SALES ("date", "count", id_tour, id_client, id_employee)');
+    OracleDataSet1.SQL.Add('VALUES (');
+    OracleDataSet1.SQL.Add('CURRENT_TIMESTAMP');
+    OracleDataSet1.SQL.Add(',');
+    OracleDataSet1.SQL.Add(LabeledEditCount.Text);
+    OracleDataSet1.SQL.Add(',');
+    OracleDataSet1.SQL.Add(IntToStr(selectedTourId));
+    OracleDataSet1.SQL.Add(',');
+    OracleDataSet1.SQL.Add(IntToStr(selectedUserId));
+    OracleDataSet1.SQL.Add(',');
+    OracleDataSet1.SQL.Add(LabeledEditEmployeeId.Text);
+    OracleDataSet1.SQL.Add(');');
+    OracleDataSet1.ExecSQL;
+    OracleDataSet1.Session.Commit;
+ end;
 end;
 
 end.
