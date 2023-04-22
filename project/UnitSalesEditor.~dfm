@@ -77,6 +77,7 @@ object FormSales: TFormSales
     Height = 33
     Caption = #1047#1072#1082#1072#1079#1072#1090#1100' '#1090#1091#1088
     TabOrder = 2
+    OnClick = ButtonBuyTourClick
   end
   object OracleDataSet1: TOracleDataSet
     SQL.Strings = (

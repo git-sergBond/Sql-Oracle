@@ -1,8 +1,8 @@
 object FormRegisterSale: TFormRegisterSale
-  Left = 1239
-  Top = 143
-  Width = 314
-  Height = 691
+  Left = 1183
+  Top = 139
+  Width = 464
+  Height = 663
   Caption = #1047#1072#1082#1072#1079#1072#1090#1100' '#1090#1091#1088
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -13,25 +13,19 @@ object FormRegisterSale: TFormRegisterSale
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object LabelUserID: TLabel
-    Left = 184
-    Top = 232
-    Width = 3
-    Height = 13
-  end
-  object LabelTourID: TLabel
-    Left = 176
-    Top = 488
-    Width = 3
-    Height = 13
-  end
   object GroupBox1: TGroupBox
     Left = 8
     Top = 8
-    Width = 289
-    Height = 65
-    Caption = #1055#1086#1080#1089#1082' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+    Width = 441
+    Height = 225
+    Caption = '1. '#1055#1086#1080#1089#1082' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
     TabOrder = 0
+    object LabelUserID: TLabel
+      Left = 179
+      Top = 184
+      Width = 85
+      Height = 21
+    end
     object LabeledEditPasportNo: TLabeledEdit
       Left = 144
       Top = 32
@@ -54,43 +48,43 @@ object FormRegisterSale: TFormRegisterSale
       TabOrder = 1
       Text = '4069'
     end
-  end
-  object ButtonFindUser: TButton
-    Left = 8
-    Top = 80
-    Width = 75
-    Height = 25
-    Caption = '1.'#1053#1072#1081#1090#1080
-    TabOrder = 1
-    OnClick = ButtonFindUserClick
+    object ButtonSelectUser: TButton
+      Left = 8
+      Top = 184
+      Width = 161
+      Height = 25
+      Caption = '2. '#1042#1099#1073#1088#1072#1090#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+      TabOrder = 2
+      OnClick = ButtonSelectUserClick
+    end
+    object ButtonFindUser: TButton
+      Left = 272
+      Top = 32
+      Width = 75
+      Height = 25
+      Caption = '1.'#1053#1072#1081#1090#1080
+      TabOrder = 3
+      OnClick = ButtonFindUserClick
+    end
   end
   object ListBoxUsers: TListBox
-    Left = 8
-    Top = 112
-    Width = 289
+    Left = 16
+    Top = 80
+    Width = 425
     Height = 105
     ItemHeight = 13
-    TabOrder = 2
-  end
-  object ButtonSelectUser: TButton
-    Left = 8
-    Top = 224
-    Width = 161
-    Height = 25
-    Caption = '2. '#1042#1099#1073#1088#1072#1090#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
-    TabOrder = 3
-    OnClick = ButtonSelectUserClick
+    TabOrder = 1
   end
   object GroupBox2: TGroupBox
     Left = 8
-    Top = 512
-    Width = 289
-    Height = 65
-    Caption = #1047#1072#1087#1086#1083#1085#1077#1085#1080#1077' '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1080' '#1087#1086' '#1090#1091#1088#1091
-    TabOrder = 4
+    Top = 472
+    Width = 321
+    Height = 161
+    Caption = '3. '#1047#1072#1087#1086#1083#1085#1077#1085#1080#1077' '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1080' '#1087#1086' '#1090#1091#1088#1091
+    TabOrder = 2
     object LabeledEditCount: TLabeledEdit
-      Left = 144
-      Top = 32
+      Left = 8
+      Top = 80
       Width = 121
       Height = 21
       EditLabel.Width = 103
@@ -98,6 +92,32 @@ object FormRegisterSale: TFormRegisterSale
       EditLabel.Caption = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1073#1080#1083#1077#1090#1086#1074
       TabOrder = 0
       Text = '1'
+    end
+    object Button1: TButton
+      Left = 8
+      Top = 120
+      Width = 97
+      Height = 25
+      Caption = #1044#1086#1073#1072#1074#1080#1090#1100
+      TabOrder = 1
+      OnClick = Button1Click
+    end
+    object Button5: TButton
+      Left = 120
+      Top = 120
+      Width = 75
+      Height = 25
+      Caption = #1054#1073#1085#1086#1074#1080#1090#1100
+      TabOrder = 2
+      OnClick = Button5Click
+    end
+    object Button2: TButton
+      Left = 208
+      Top = 120
+      Width = 89
+      Height = 25
+      Caption = #1059#1076#1072#1083#1080#1090#1100
+      TabOrder = 3
     end
     object LabeledEditEmployeeId: TLabeledEdit
       Left = 8
@@ -107,79 +127,60 @@ object FormRegisterSale: TFormRegisterSale
       EditLabel.Width = 72
       EditLabel.Height = 13
       EditLabel.Caption = 'ID '#1089#1086#1090#1088#1091#1076#1085#1080#1082#1072
-      TabOrder = 1
+      TabOrder = 4
       Text = '4'
     end
   end
-  object Button1: TButton
-    Left = 8
-    Top = 624
-    Width = 97
-    Height = 25
-    Caption = '3. '#1044#1086#1073#1072#1074#1080#1090#1100
-    TabOrder = 5
-    OnClick = Button1Click
-  end
-  object Button2: TButton
-    Left = 208
-    Top = 624
-    Width = 89
-    Height = 25
-    Caption = #1059#1076#1072#1083#1080#1090#1100
-    TabOrder = 6
-  end
   object GroupBox3: TGroupBox
     Left = 8
-    Top = 264
-    Width = 289
-    Height = 65
-    Caption = #1055#1086#1080#1089#1082' '#1090#1091#1088#1072
-    TabOrder = 7
+    Top = 240
+    Width = 441
+    Height = 217
+    Caption = '2. '#1055#1086#1080#1089#1082' '#1090#1091#1088#1072
+    TabOrder = 3
+    object LabelTourID: TLabel
+      Left = 176
+      Top = 176
+      Width = 113
+      Height = 25
+    end
+    object ListBoxTours: TListBox
+      Left = 8
+      Top = 64
+      Width = 425
+      Height = 105
+      ItemHeight = 13
+      TabOrder = 0
+    end
+    object Button3: TButton
+      Left = 136
+      Top = 32
+      Width = 75
+      Height = 25
+      Caption = '1.'#1053#1072#1081#1090#1080
+      TabOrder = 1
+      OnClick = Button3Click
+    end
+    object Button4: TButton
+      Left = 8
+      Top = 176
+      Width = 161
+      Height = 25
+      Caption = '2. '#1074#1099#1073#1088#1072#1090#1100' '#1090#1091#1088
+      TabOrder = 2
+      OnClick = Button4Click
+    end
     object LabeledEditCountry: TLabeledEdit
       Left = 8
       Top = 32
-      Width = 265
+      Width = 113
       Height = 21
       EditLabel.Width = 36
       EditLabel.Height = 13
       EditLabel.Caption = #1057#1090#1088#1072#1085#1072
-      TabOrder = 0
+      TabOrder = 3
       Text = #1043#1088#1077#1094#1080#1103
     end
-  end
-  object Button3: TButton
-    Left = 8
-    Top = 336
-    Width = 75
-    Height = 25
-    Caption = '3.'#1053#1072#1081#1090#1080
-    TabOrder = 8
-    OnClick = Button3Click
-  end
-  object ListBoxTours: TListBox
-    Left = 8
-    Top = 368
-    Width = 289
-    Height = 105
-    ItemHeight = 13
-    TabOrder = 9
-  end
-  object Button4: TButton
-    Left = 8
-    Top = 480
-    Width = 161
-    Height = 25
-    Caption = '4. '#1074#1099#1073#1088#1072#1090#1100' '#1090#1091#1088
-    TabOrder = 10
-    OnClick = Button4Click
-  end
-  object Button5: TButton
-    Left = 120
-    Top = 624
-    Width = 75
-    Height = 25
-    Caption = #1054#1073#1085#1086#1074#1080#1090#1100
-    TabOrder = 11
   end
   object OracleDataSet1: TOracleDataSet
     SQL.Strings = (
@@ -194,7 +195,7 @@ object FormRegisterSale: TFormRegisterSale
       5254010000000000}
     Session = FormMain.OracleSession1
     Active = True
-    Left = 96
-    Top = 80
+    Left = 344
+    Top = 472
   end
 end

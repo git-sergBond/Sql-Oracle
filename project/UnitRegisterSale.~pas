@@ -33,6 +33,7 @@ type
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -146,6 +147,30 @@ LabelTourID.Caption := 'Tour ID: ' + IntToStr(selectedTourId);
 end;
 
 procedure TFormRegisterSale.Button1Click(Sender: TObject);
+begin
+  with OracleDataSet1 do
+  begin
+    OracleDataSet1.Active:=false;
+    OracleDataSet1.SQL.Clear;
+    OracleDataSet1.SQL.Add('INSERT INTO TRVL_SALES ("date", "count", id_tour, id_client, id_employee)');
+    OracleDataSet1.SQL.Add('VALUES (');
+    OracleDataSet1.SQL.Add('CURRENT_TIMESTAMP');
+    OracleDataSet1.SQL.Add(',');
+    OracleDataSet1.SQL.Add(LabeledEditCount.Text);
+    OracleDataSet1.SQL.Add(',');
+    OracleDataSet1.SQL.Add(IntToStr(selectedTourId));
+    OracleDataSet1.SQL.Add(',');
+    OracleDataSet1.SQL.Add(IntToStr(selectedUserId));
+    OracleDataSet1.SQL.Add(',');
+    OracleDataSet1.SQL.Add(LabeledEditEmployeeId.Text);
+    OracleDataSet1.SQL.Add(')');
+    OracleDataSet1.ExecSQL;
+    OracleDataSet1.Session.Commit;
+    OracleDataSet1.Active:=true;
+ end;
+end;
+
+procedure TFormRegisterSale.Button5Click(Sender: TObject);
 begin
   with OracleDataSet1 do
   begin
