@@ -1,6 +1,6 @@
 object FormRegisterSale: TFormRegisterSale
-  Left = 1294
-  Top = 142
+  Left = 1239
+  Top = 143
   Width = 314
   Height = 691
   Caption = #1047#1072#1082#1072#1079#1072#1090#1100' '#1090#1091#1088

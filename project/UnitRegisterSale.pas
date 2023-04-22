@@ -141,14 +141,15 @@ procedure TFormRegisterSale.Button4Click(Sender: TObject);
 var index : integer;
 begin
 index := ListBoxTours.ItemIndex;
-selectedUserId := tourIdArray[index];
-LabelTourID.Caption := 'Tour ID: ' + IntToStr(selectedUserId);
+selectedTourId := tourIdArray[index];
+LabelTourID.Caption := 'Tour ID: ' + IntToStr(selectedTourId);
 end;
 
 procedure TFormRegisterSale.Button1Click(Sender: TObject);
 begin
   with OracleDataSet1 do
   begin
+    OracleDataSet1.Active:=false;
     OracleDataSet1.SQL.Clear;
     OracleDataSet1.SQL.Add('INSERT INTO TRVL_SALES ("date", "count", id_tour, id_client, id_employee)');
     OracleDataSet1.SQL.Add('VALUES (');
@@ -161,9 +162,10 @@ begin
     OracleDataSet1.SQL.Add(IntToStr(selectedUserId));
     OracleDataSet1.SQL.Add(',');
     OracleDataSet1.SQL.Add(LabeledEditEmployeeId.Text);
-    OracleDataSet1.SQL.Add(');');
+    OracleDataSet1.SQL.Add(')');
     OracleDataSet1.ExecSQL;
     OracleDataSet1.Session.Commit;
+    OracleDataSet1.Active:=true;
  end;
 end;
 
