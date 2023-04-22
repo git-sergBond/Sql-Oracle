@@ -37,14 +37,16 @@ type
 
 var
   FormRegisterSale: TFormRegisterSale;
+  userIdArray : array[0..100] of integer;
+  selectedUserId : integer;
 
 implementation
 
 {$R *.dfm}
 
 procedure TFormRegisterSale.ButtonFindUserClick(Sender: TObject);
-const SEARCH_USER_SQL = 'select * from TRVL_CLIENT t;';
 var pasportSer, pasportNo, userInfo: string;
+i : integer;
 begin
   //READ FIELDS
   pasportSer := LabeledEditPasportSer.Text;
@@ -61,6 +63,7 @@ begin
     OracleDataSet1.Active:=true;
 
     ListBoxUsers.Clear;
+    i := 0;
     OracleDataSet1.First;
     while not OracleDataSet1.Eof do
     begin
@@ -72,6 +75,8 @@ begin
       OracleDataSet1.FieldValues['phone'];
       //
       ListBoxUsers.Items.Add(userInfo);
+      userIdArray[i] := OracleDataSet1.FieldValues['id'];
+      i := i + 1;
       //
       OracleDataSet1.Next;
     end;
@@ -79,23 +84,11 @@ begin
 end;
 
 procedure TFormRegisterSale.ButtonSelectUserClick(Sender: TObject);
-var selectedItem, id : string;
-I,X: Integer;
+var index : integer;
 begin
-selectedItem := ListBoxUsers.Items[ListBoxUsers.ItemIndex];
-
-I:=0;
-id:='';
-while I <= Length(selectedItem) do
-begin
-  if selectedItem[I] = '#' then
-  begin
-    Break;
-  end;
-  id := id + selectedItem[I];
-end;
-
-LabelUserID.Caption := id;
+index := ListBoxUsers.ItemIndex;
+selectedUserId := userIdArray[index];
+LabelUserID.Caption := 'Client ID: ' + IntToStr(selectedUserId);
 end;
 
 end.
