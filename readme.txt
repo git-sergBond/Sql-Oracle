@@ -15,7 +15,7 @@ IDE: borland delphi 7
 Порядок миграции БД:
 1. Открыть директорию "db"
 2. Залогиниться как "sys"
-3. Ыыполнить SQL скрипт "1 init db.sql"
+3. Выполнить SQL скрипт "1 init db.sql"
 4. Залогиниться логином/паролем из "credentials.txt"
 5. Выполнить SQL скрипт "2 migrations.sql"
 6. Выполнить SQL скрипт "3 test data.sql"
