@@ -22,13 +22,16 @@ type
     Button1: TButton;
     Button2: TButton;
     GroupBox3: TGroupBox;
-    LabeledEdit4: TLabeledEdit;
+    LabeledEditCountry: TLabeledEdit;
     Button3: TButton;
-    ListBox1: TListBox;
+    ListBoxTours: TListBox;
     Button4: TButton;
     LabelUserID: TLabel;
+    LabelTourID: TLabel;
     procedure ButtonFindUserClick(Sender: TObject);
     procedure ButtonSelectUserClick(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -38,7 +41,9 @@ type
 var
   FormRegisterSale: TFormRegisterSale;
   userIdArray : array[0..100] of integer;
+  tourIdArray : array[0..100] of integer;
   selectedUserId : integer;
+  selectedTourId : integer;
 
 implementation
 
@@ -88,7 +93,55 @@ var index : integer;
 begin
 index := ListBoxUsers.ItemIndex;
 selectedUserId := userIdArray[index];
-LabelUserID.Caption := 'ID: ' + IntToStr(selectedUserId);
+LabelUserID.Caption := 'Client ID: ' + IntToStr(selectedUserId);
+end;
+
+procedure TFormRegisterSale.Button3Click(Sender: TObject);
+var counntry, rowStr: string;
+i : integer;
+begin
+  //READ FIELDS
+  counntry := LabeledEditCountry.Text;
+
+  //SELECT FROM DB
+  with OracleDataSet1 do
+  begin
+    OracleDataSet1.Active:=false;
+    OracleDataSet1.SQL.Clear;
+    OracleDataSet1.SQL.Add('select t.id, t.name as T_NAME, t.price, c."name" as C_NAME from TRVL_TOURS t ');
+    OracleDataSet1.SQL.Add('left join TRVL_COUNTRY c ');
+    OracleDataSet1.SQL.Add('on t.id_country = c.id ');
+    OracleDataSet1.SQL.Add('where upper(c."name") like upper(');
+    OracleDataSet1.SQL.Add('''%'+counntry+'%''');
+    OracleDataSet1.SQL.Add(')');
+    OracleDataSet1.Active:=true;
+
+    ListBoxTours.Clear;
+    i := 0;
+    OracleDataSet1.First;
+    while not OracleDataSet1.Eof do
+    begin
+      rowStr :=
+      IntToStr(OracleDataSet1.FieldValues['id']) + '# ' +
+      OracleDataSet1.FieldValues['T_NAME'] + ',' +
+      IntToStr(OracleDataSet1.FieldValues['price']) + ' руб.,' +
+      OracleDataSet1.FieldValues['C_NAME'];
+      //
+      ListBoxTours.Items.Add(rowStr);
+      tourIdArray[i] := OracleDataSet1.FieldValues['id'];
+      i := i + 1;
+      //
+      OracleDataSet1.Next;
+    end;
+ end;
+end;
+
+procedure TFormRegisterSale.Button4Click(Sender: TObject);
+var index : integer;
+begin
+index := ListBoxTours.ItemIndex;
+selectedUserId := tourIdArray[index];
+LabelTourID.Caption := 'Tour ID: ' + IntToStr(selectedUserId);
 end;
 
 end.

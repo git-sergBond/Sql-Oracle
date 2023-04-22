@@ -16,7 +16,13 @@ object FormRegisterSale: TFormRegisterSale
   object LabelUserID: TLabel
     Left = 184
     Top = 232
-    Width = 3
+    Width = 113
+    Height = 13
+  end
+  object LabelTourID: TLabel
+    Left = 176
+    Top = 488
+    Width = 121
     Height = 13
   end
   object GroupBox1: TGroupBox
@@ -126,7 +132,7 @@ object FormRegisterSale: TFormRegisterSale
     Height = 65
     Caption = #1055#1086#1080#1089#1082' '#1090#1091#1088#1072
     TabOrder = 7
-    object LabeledEdit4: TLabeledEdit
+    object LabeledEditCountry: TLabeledEdit
       Left = 8
       Top = 32
       Width = 265
@@ -135,6 +141,7 @@ object FormRegisterSale: TFormRegisterSale
       EditLabel.Height = 13
       EditLabel.Caption = #1057#1090#1088#1072#1085#1072
       TabOrder = 0
+      Text = #1043#1088#1077#1094#1080#1103
     end
   end
   object Button3: TButton
@@ -144,8 +151,9 @@ object FormRegisterSale: TFormRegisterSale
     Height = 25
     Caption = '3.'#1053#1072#1081#1090#1080
     TabOrder = 8
+    OnClick = Button3Click
   end
-  object ListBox1: TListBox
+  object ListBoxTours: TListBox
     Left = 8
     Top = 368
     Width = 289
@@ -160,6 +168,7 @@ object FormRegisterSale: TFormRegisterSale
     Height = 25
     Caption = '4. '#1074#1099#1073#1088#1072#1090#1100' '#1090#1091#1088
     TabOrder = 10
+    OnClick = Button4Click
   end
   object OracleDataSet1: TOracleDataSet
     SQL.Strings = (
