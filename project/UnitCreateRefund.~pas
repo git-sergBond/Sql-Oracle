@@ -149,18 +149,15 @@ begin
   begin
     OracleDataSetInsert.Active:=false;
     OracleDataSetInsert.SQL.Clear;
+    OracleDataSetInsert.SetVariable(':V_ID_TOUR', selectedTourId);
+    OracleDataSetInsert.SetVariable(':V_ID_CLIENT', selectedUserId);
+    OracleDataSetInsert.SetVariable(':V_ID_SALE', selectedUserId);
     OracleDataSetInsert.SQL.Add('INSERT INTO TRVL_REFUNDS ("date", "count", id_tour, id_client, id_sale, id_employee, reason)');
     OracleDataSetInsert.SQL.Add('VALUES (');
     OracleDataSetInsert.SQL.Add('CURRENT_TIMESTAMP');
     OracleDataSetInsert.SQL.Add(',');
     OracleDataSetInsert.SQL.Add(LabeledEditCount.Text);
-    OracleDataSetInsert.SQL.Add(',');
-    OracleDataSetInsert.SQL.Add(IntToStr(selectedTourId));
-    OracleDataSetInsert.SQL.Add(',');
-    OracleDataSetInsert.SQL.Add(IntToStr(selectedUserId));
-    OracleDataSetInsert.SQL.Add(',');
-    OracleDataSetInsert.SQL.Add(IntToStr(selectedSaleId));
-    OracleDataSetInsert.SQL.Add(',');
+    OracleDataSetInsert.SQL.Add(', :V_ID_TOUR, :V_ID_CLIENT, :V_ID_SALE, ');
     OracleDataSetInsert.SQL.Add(LabeledEditEmployeeId.Text);
     OracleDataSetInsert.SQL.Add(',');
     OracleDataSetInsert.SQL.Add('''');
