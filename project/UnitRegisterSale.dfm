@@ -168,7 +168,6 @@ object FormRegisterSale: TFormRegisterSale
   object OracleDataSet1: TOracleDataSet
     SQL.Strings = (
       'select t.*, t.rowid from TRVL_CLIENT t')
-    Variables.Data = {0300000001000000070000003A565F44415445BC0000000000000000000000}
     SequenceField.Field = 'ID'
     SequenceField.Sequence = 'TRVL_CLIENT_ID_SEQ'
     SequenceField.ApplyMoment = amOnNewRecord
