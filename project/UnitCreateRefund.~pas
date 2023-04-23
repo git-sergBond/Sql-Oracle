@@ -54,7 +54,7 @@ begin
   pasportSer := LabeledEditPasportSer.Text;
   pasportNo := LabeledEditPasportNo.Text;
 
-  //SELECT FROM DB
+  //SELECT USER FROM DB
   with OracleDataSetViewUser do
   begin
     OracleDataSetViewUser.Active:=false;
@@ -87,10 +87,42 @@ end;
 
 procedure TFormCreateRefund.ButtonSelectUserClick(Sender: TObject);
 var index : integer;
+saleInfo: string;
+i : integer;
 begin
 index := ListBoxUsers.ItemIndex;
 selectedUserId := userIdArray[index];
 LabelUserID.Caption := 'Client ID: ' + IntToStr(selectedUserId);
+
+
+//SELECT SALE FROM DB
+  with OracleDataSetViewSale do
+  begin
+    OracleDataSetViewSale.Active:=false;
+    OracleDataSetViewSale.SQL.Clear;
+    OracleDataSetViewSale.SQL.Add('select t.* from TRVL_SALES t ');
+    OracleDataSetViewSale.SQL.Add('where t.id_client = ');
+    OracleDataSetViewSale.SQL.Add(IntToStr(selectedUserId));
+    OracleDataSetViewSale.Active:=true;
+
+    ListBoxSales.Clear;
+    i := 0;
+    OracleDataSetViewSale.First;
+    while not OracleDataSetViewSale.Eof do
+    begin
+      saleInfo :=
+      IntToStr(OracleDataSetViewSale.FieldValues['id']) + '# ' +
+      DateTimeToStr(OracleDataSetViewSale.FieldValues['date']) + ', ' +
+      'Билетов: ' + IntToStr(OracleDataSetViewSale.FieldValues['count']) + ', ' +
+      'ID тура: ' + IntToStr(OracleDataSetViewSale.FieldValues['id_tour']);
+      //
+      ListBoxSales.Items.Add(saleInfo);
+      saleIdArray[i] := OracleDataSetViewSale.FieldValues['id'];
+      i := i + 1;
+      //
+      OracleDataSetViewSale.Next;
+    end;
+ end;
 end;
 
 end.
