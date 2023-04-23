@@ -1,8 +1,8 @@
 object FormSales: TFormSales
-  Left = 580
-  Top = 376
-  Width = 539
-  Height = 388
+  Left = 721
+  Top = 497
+  Width = 727
+  Height = 347
   Caption = #1047#1072#1082#1072#1079#1099
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -13,6 +13,21 @@ object FormSales: TFormSales
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
+  object DBTextId: TDBText
+    Left = 456
+    Top = 16
+    Width = 65
+    Height = 17
+    DataField = 'ID'
+    DataSource = DataSource1
+  end
+  object Label1: TLabel
+    Left = 440
+    Top = 16
+    Width = 11
+    Height = 13
+    Caption = 'ID'
+  end
   object DBNavigator1: TDBNavigator
     Left = 8
     Top = 8
@@ -70,14 +85,58 @@ object FormSales: TFormSales
         Visible = True
       end>
   end
-  object ButtonBuyTour: TButton
-    Left = 8
-    Top = 320
-    Width = 105
-    Height = 33
-    Caption = #1047#1072#1082#1072#1079#1072#1090#1100' '#1090#1091#1088
+  object GroupBox1: TGroupBox
+    Left = 528
+    Top = 48
+    Width = 177
+    Height = 257
+    Caption = #1056#1072#1073#1086#1090#1072' '#1089' '#1041#1044
     TabOrder = 2
-    OnClick = ButtonBuyTourClick
+    object GroupBoxUpdate: TGroupBox
+      Left = 8
+      Top = 80
+      Width = 161
+      Height = 121
+      Caption = #1054#1073#1085#1086#1074#1083#1077#1085#1080#1077
+      TabOrder = 0
+      object LabeledEditCount: TLabeledEdit
+        Left = 8
+        Top = 60
+        Width = 121
+        Height = 21
+        EditLabel.Width = 103
+        EditLabel.Height = 13
+        EditLabel.Caption = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1073#1080#1083#1077#1090#1086#1074
+        TabOrder = 0
+        Text = '1'
+      end
+      object ButtonUpdate: TButton
+        Left = 6
+        Top = 88
+        Width = 75
+        Height = 25
+        Caption = #1054#1073#1085#1086#1074#1080#1090#1100
+        TabOrder = 1
+      end
+    end
+    object ButtonBuyTour: TButton
+      Left = 8
+      Top = 32
+      Width = 89
+      Height = 25
+      Caption = #1047#1072#1082#1072#1079#1072#1090#1100' '#1090#1091#1088
+      TabOrder = 1
+      OnClick = ButtonBuyTourClick
+    end
+    object ButtonDelete: TButton
+      Left = 8
+      Top = 224
+      Width = 89
+      Height = 25
+      Caption = #1059#1076#1072#1083#1080#1090#1100
+      TabOrder = 2
+      OnClick = ButtonDeleteClick
+    end
   end
   object OracleDataSet1: TOracleDataSet
     SQL.Strings = (
@@ -92,12 +151,12 @@ object FormSales: TFormSales
       4F594545010000000000}
     Session = FormMain.OracleSession1
     Active = True
-    Left = 432
+    Left = 528
     Top = 8
   end
   object DataSource1: TDataSource
     DataSet = OracleDataSet1
-    Left = 464
+    Left = 560
     Top = 8
   end
 end

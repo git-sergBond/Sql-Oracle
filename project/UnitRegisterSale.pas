@@ -19,7 +19,6 @@ type
     LabeledEditCount: TLabeledEdit;
     LabeledEditEmployeeId: TLabeledEdit;
     Button1: TButton;
-    Button2: TButton;
     GroupBox3: TGroupBox;
     LabeledEditCountry: TLabeledEdit;
     Button3: TButton;
@@ -27,7 +26,6 @@ type
     Button4: TButton;
     LabelUserID: TLabel;
     LabelTourID: TLabel;
-    Button5: TButton;
     procedure ButtonFindUserClick(Sender: TObject);
     procedure ButtonSelectUserClick(Sender: TObject);
     procedure Button3Click(Sender: TObject);
@@ -195,3 +193,4 @@ begin
 end;
 
 end.
+

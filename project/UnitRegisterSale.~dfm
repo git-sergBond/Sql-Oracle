@@ -1,6 +1,6 @@
 object FormRegisterSale: TFormRegisterSale
-  Left = 1183
-  Top = 139
+  Left = 1221
+  Top = 131
   Width = 464
   Height = 663
   Caption = #1047#1072#1082#1072#1079#1072#1090#1100' '#1090#1091#1088
@@ -23,8 +23,8 @@ object FormRegisterSale: TFormRegisterSale
     object LabelUserID: TLabel
       Left = 179
       Top = 184
-      Width = 85
-      Height = 21
+      Width = 3
+      Height = 13
     end
     object LabeledEditPasportNo: TLabeledEdit
       Left = 144
@@ -78,7 +78,7 @@ object FormRegisterSale: TFormRegisterSale
   object GroupBox2: TGroupBox
     Left = 8
     Top = 472
-    Width = 321
+    Width = 217
     Height = 161
     Caption = '3. '#1047#1072#1087#1086#1083#1085#1077#1085#1080#1077' '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1080' '#1087#1086' '#1090#1091#1088#1091
     TabOrder = 2
@@ -102,23 +102,6 @@ object FormRegisterSale: TFormRegisterSale
       TabOrder = 1
       OnClick = Button1Click
     end
-    object Button5: TButton
-      Left = 120
-      Top = 120
-      Width = 75
-      Height = 25
-      Caption = #1054#1073#1085#1086#1074#1080#1090#1100
-      TabOrder = 2
-      OnClick = Button5Click
-    end
-    object Button2: TButton
-      Left = 208
-      Top = 120
-      Width = 89
-      Height = 25
-      Caption = #1059#1076#1072#1083#1080#1090#1100
-      TabOrder = 3
-    end
     object LabeledEditEmployeeId: TLabeledEdit
       Left = 8
       Top = 32
@@ -127,7 +110,7 @@ object FormRegisterSale: TFormRegisterSale
       EditLabel.Width = 72
       EditLabel.Height = 13
       EditLabel.Caption = 'ID '#1089#1086#1090#1088#1091#1076#1085#1080#1082#1072
-      TabOrder = 4
+      TabOrder = 2
       Text = '4'
     end
   end
@@ -141,8 +124,8 @@ object FormRegisterSale: TFormRegisterSale
     object LabelTourID: TLabel
       Left = 176
       Top = 176
-      Width = 113
-      Height = 25
+      Width = 3
+      Height = 13
     end
     object ListBoxTours: TListBox
       Left = 8
@@ -185,6 +168,7 @@ object FormRegisterSale: TFormRegisterSale
   object OracleDataSet1: TOracleDataSet
     SQL.Strings = (
       'select t.*, t.rowid from TRVL_CLIENT t')
+    Variables.Data = {0300000001000000070000003A565F44415445BC0000000000000000000000}
     SequenceField.Field = 'ID'
     SequenceField.Sequence = 'TRVL_CLIENT_ID_SEQ'
     SequenceField.ApplyMoment = amOnNewRecord
@@ -194,8 +178,7 @@ object FormRegisterSale: TFormRegisterSale
       430100000000000500000050484F4E450100000000000800000050415353504F
       5254010000000000}
     Session = FormMain.OracleSession1
-    Active = True
-    Left = 344
-    Top = 472
+    Left = 232
+    Top = 464
   end
 end
