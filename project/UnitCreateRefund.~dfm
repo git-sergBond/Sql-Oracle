@@ -194,6 +194,9 @@ object FormCreateRefund: TFormCreateRefund
   object OracleDataSetViewSale: TOracleDataSet
     SQL.Strings = (
       'select t.*, t.rowid from TRVL_CLIENT t')
+    Variables.Data = {
+      03000000010000000A0000003A565F555345525F494408000000000000000000
+      0000}
     SequenceField.Field = 'ID'
     SequenceField.Sequence = 'TRVL_CLIENT_ID_SEQ'
     SequenceField.ApplyMoment = amOnNewRecord

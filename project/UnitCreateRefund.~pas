@@ -105,9 +105,9 @@ LabelUserID.Caption := 'Client ID: ' + IntToStr(selectedUserId);
   begin
     OracleDataSetViewSale.Active:=false;
     OracleDataSetViewSale.SQL.Clear;
+    OracleDataSetViewSale.SetVariable('V_USER_ID', selectedUserId);
     OracleDataSetViewSale.SQL.Add('select t.* from TRVL_SALES t ');
-    OracleDataSetViewSale.SQL.Add('where t.id_client = ');
-    OracleDataSetViewSale.SQL.Add(IntToStr(selectedUserId));
+    OracleDataSetViewSale.SQL.Add('where t.id_client = :V_USER_ID');
     OracleDataSetViewSale.Active:=true;
 
     ListBoxSales.Clear;
