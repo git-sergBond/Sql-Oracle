@@ -117,6 +117,7 @@ object FormSales: TFormSales
         Height = 25
         Caption = #1054#1073#1085#1086#1074#1080#1090#1100
         TabOrder = 1
+        OnClick = ButtonUpdateClick
       end
     end
     object ButtonBuyTour: TButton
