@@ -20,9 +20,11 @@ type
     GroupBox1: TGroupBox;
     DBTextId: TDBText;
     Label1: TLabel;
+    DBTextCount: TDBText;
     procedure ButtonBuyTourClick(Sender: TObject);
     procedure ButtonDeleteClick(Sender: TObject);
     procedure ButtonUpdateClick(Sender: TObject);
+    procedure DataSource1DataChange(Sender: TObject; Field: TField);
   private
     { Private declarations }
   public
@@ -72,6 +74,11 @@ begin
     OracleDataSet1.SQL.Clear;
     OracleDataSet1.SQL.Add('select t.*, t.rowid from TRVL_SALES t');
     OracleDataSet1.Active:=true;
+end;
+
+procedure TFormSales.DataSource1DataChange(Sender: TObject; Field: TField);
+begin
+LabeledEditCount.Text := DBTextCount.Caption;
 end;
 
 end.

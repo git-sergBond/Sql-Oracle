@@ -28,6 +28,15 @@ object FormSales: TFormSales
     Height = 13
     Caption = 'ID'
   end
+  object DBTextCount: TDBText
+    Left = 616
+    Top = 16
+    Width = 65
+    Height = 17
+    DataField = 'count'
+    DataSource = DataSource1
+    Visible = False
+  end
   object DBNavigator1: TDBNavigator
     Left = 8
     Top = 8
@@ -157,6 +166,7 @@ object FormSales: TFormSales
   end
   object DataSource1: TDataSource
     DataSet = OracleDataSet1
+    OnDataChange = DataSource1DataChange
     Left = 560
     Top = 8
   end
