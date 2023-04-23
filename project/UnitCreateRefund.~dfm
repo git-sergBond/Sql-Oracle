@@ -130,10 +130,10 @@ object FormCreateRefund: TFormCreateRefund
     Height = 177
     Caption = '2. '#1055#1086#1080#1089#1082' '#1089#1076#1077#1083#1082#1080
     TabOrder = 3
-    object LabelTourID: TLabel
-      Left = 176
-      Top = 176
-      Width = 3
+    object LabelSaleID: TLabel
+      Left = 179
+      Top = 142
+      Width = 125
       Height = 13
     end
     object ListBoxSales: TListBox
@@ -151,6 +151,7 @@ object FormCreateRefund: TFormCreateRefund
       Height = 25
       Caption = '2. '#1074#1099#1073#1088#1072#1090#1100' '#1089#1076#1077#1083#1082#1091
       TabOrder = 1
+      OnClick = Button4Click
     end
   end
   object OracleDataSetInsert: TOracleDataSet

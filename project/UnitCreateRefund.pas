@@ -20,7 +20,7 @@ type
     ButtonCreate: TButton;
     LabeledEditEmployeeId: TLabeledEdit;
     GroupBox3: TGroupBox;
-    LabelTourID: TLabel;
+    LabelSaleID: TLabel;
     ListBoxSales: TListBox;
     Button4: TButton;
     OracleDataSetInsert: TOracleDataSet;
@@ -29,6 +29,7 @@ type
     LabeledEditReason: TLabeledEdit;
     procedure ButtonFindUserClick(Sender: TObject);
     procedure ButtonSelectUserClick(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -123,6 +124,14 @@ LabelUserID.Caption := 'Client ID: ' + IntToStr(selectedUserId);
       OracleDataSetViewSale.Next;
     end;
  end;
+end;
+
+procedure TFormCreateRefund.Button4Click(Sender: TObject);
+var index : integer;
+begin
+index := ListBoxSales.ItemIndex;
+selectedSaleId := saleIdArray[index];
+LabelSaleID.Caption := 'Sale ID: ' + IntToStr(selectedSaleId);
 end;
 
 end.
