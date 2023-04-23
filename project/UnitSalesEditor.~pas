@@ -21,6 +21,8 @@ type
     DBTextId: TDBText;
     Label1: TLabel;
     DBTextCount: TDBText;
+    OracleDataSetDelete: TOracleDataSet;
+    OracleDataSetUpdate: TOracleDataSet;
     procedure ButtonBuyTourClick(Sender: TObject);
     procedure ButtonDeleteClick(Sender: TObject);
     procedure ButtonUpdateClick(Sender: TObject);
@@ -46,13 +48,16 @@ end;
 procedure TFormSales.ButtonDeleteClick(Sender: TObject);
 var id : string;
 begin
-    id :=  DBTextId.Caption;
+    id := DBTextId.Caption;
+    OracleDataSetDelete.Active:=false;
+    OracleDataSetDelete.SQL.Clear;
+    OracleDataSetDelete.SetVariable('V_ID', StrToInt(id));
+    OracleDataSetDelete.SQL.Add('DELETE FROM TRVL_SALES t WHERE t.id = :V_ID');
+    OracleDataSetDelete.ExecSQL;
+    OracleDataSetDelete.Session.Commit;
+    OracleDataSetDelete.Active:=true;
+
     OracleDataSet1.Active:=false;
-    OracleDataSet1.SQL.Clear;
-    OracleDataSet1.SQL.Add('DELETE FROM TRVL_SALES t WHERE t.id = ');
-    OracleDataSet1.SQL.Add(id);
-    OracleDataSet1.ExecSQL;
-    OracleDataSet1.Session.Commit;
     OracleDataSet1.SQL.Clear;
     OracleDataSet1.SQL.Add('select t.*, t.rowid from TRVL_SALES t');
     OracleDataSet1.Active:=true;
@@ -62,15 +67,18 @@ procedure TFormSales.ButtonUpdateClick(Sender: TObject);
 var id : string;
 begin
     id :=  DBTextId.Caption;
+    OracleDataSetUpdate.Active:=false;
+    OracleDataSetUpdate.SQL.Clear;
+    OracleDataSetUpdate.SetVariable('V_ID', StrToInt(id));
+    OracleDataSetUpdate.SetVariable('V_COUNT', StrToInt(LabeledEditCount.Text));
+    OracleDataSetUpdate.SQL.Add('UPDATE TRVL_SALES t');
+    OracleDataSetUpdate.SQL.Add(' SET t."count" = :V_COUNT');
+    OracleDataSetUpdate.SQL.Add(' WHERE t.id = :V_ID');
+    OracleDataSetUpdate.ExecSQL;
+    OracleDataSetUpdate.Session.Commit;
+    OracleDataSetUpdate.Active:=true;
+
     OracleDataSet1.Active:=false;
-    OracleDataSet1.SQL.Clear;
-    OracleDataSet1.SQL.Add('UPDATE TRVL_SALES t');
-    OracleDataSet1.SQL.Add(' SET t."count" = ');
-    OracleDataSet1.SQL.Add(LabeledEditCount.Text);
-    OracleDataSet1.SQL.Add(' WHERE t.id = ');
-    OracleDataSet1.SQL.Add(id);
-    OracleDataSet1.ExecSQL;
-    OracleDataSet1.Session.Commit;
     OracleDataSet1.SQL.Clear;
     OracleDataSet1.SQL.Add('select t.*, t.rowid from TRVL_SALES t');
     OracleDataSet1.Active:=true;

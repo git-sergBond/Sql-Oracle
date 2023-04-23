@@ -1,7 +1,7 @@
 object FormSales: TFormSales
   Left = 766
   Top = 499
-  Width = 727
+  Width = 788
   Height = 347
   Caption = #1047#1072#1082#1072#1079#1099
   Color = clBtnFace
@@ -169,5 +169,35 @@ object FormSales: TFormSales
     OnDataChange = DataSource1DataChange
     Left = 560
     Top = 8
+  end
+  object OracleDataSetDelete: TOracleDataSet
+    Variables.Data = {0300000001000000050000003A565F4944030000000000000000000000}
+    SequenceField.Field = 'ID'
+    SequenceField.Sequence = 'TRVL_CLIENT_ID_SEQ'
+    SequenceField.ApplyMoment = amOnNewRecord
+    QBEDefinition.QBEFieldDefs = {
+      0400000006000000020000004944010000000000040000006461746501000000
+      000005000000636F756E740100000000000700000049445F544F555201000000
+      00000900000049445F434C49454E540100000000000B00000049445F454D504C
+      4F594545010000000000}
+    Session = FormMain.OracleSession1
+    Left = 648
+    Top = 264
+  end
+  object OracleDataSetUpdate: TOracleDataSet
+    Variables.Data = {
+      0300000002000000050000003A565F4944030000000000000000000000080000
+      003A565F434F554E54030000000000000000000000}
+    SequenceField.Field = 'ID'
+    SequenceField.Sequence = 'TRVL_CLIENT_ID_SEQ'
+    SequenceField.ApplyMoment = amOnNewRecord
+    QBEDefinition.QBEFieldDefs = {
+      0400000006000000020000004944010000000000040000006461746501000000
+      000005000000636F756E740100000000000700000049445F544F555201000000
+      00000900000049445F434C49454E540100000000000B00000049445F454D504C
+      4F594545010000000000}
+    Session = FormMain.OracleSession1
+    Left = 648
+    Top = 216
   end
 end
