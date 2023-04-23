@@ -14,7 +14,7 @@ type
     LabeledEditPasportSer: TLabeledEdit;
     ListBoxUsers: TListBox;
     ButtonSelectUser: TButton;
-    OracleDataSet1: TOracleDataSet;
+    OracleDataSetEdit: TOracleDataSet;
     GroupBox2: TGroupBox;
     LabeledEditCount: TLabeledEdit;
     LabeledEditEmployeeId: TLabeledEdit;
@@ -26,6 +26,7 @@ type
     Button4: TButton;
     LabelUserID: TLabel;
     LabelTourID: TLabel;
+    OracleDataSetView: TOracleDataSet;
     procedure ButtonFindUserClick(Sender: TObject);
     procedure ButtonSelectUserClick(Sender: TObject);
     procedure Button3Click(Sender: TObject);
@@ -57,32 +58,32 @@ begin
   pasportNo := LabeledEditPasportNo.Text;
 
   //SELECT FROM DB
-  with OracleDataSet1 do
+  with OracleDataSetView do
   begin
-    OracleDataSet1.Active:=false;
-    OracleDataSet1.SQL.Clear;
-    OracleDataSet1.SQL.Add('select t.* from TRVL_CLIENT t ');
-    OracleDataSet1.SQL.Add('where t. passport LIKE ');
-    OracleDataSet1.SQL.Add('''%'+pasportSer+'%'+pasportNo+'%''');
-    OracleDataSet1.Active:=true;
+    OracleDataSetView.Active:=false;
+    OracleDataSetView.SQL.Clear;
+    OracleDataSetView.SQL.Add('select t.* from TRVL_CLIENT t ');
+    OracleDataSetView.SQL.Add('where t. passport LIKE ');
+    OracleDataSetView.SQL.Add('''%'+pasportSer+'%'+pasportNo+'%''');
+    OracleDataSetView.Active:=true;
 
     ListBoxUsers.Clear;
     i := 0;
-    OracleDataSet1.First;
-    while not OracleDataSet1.Eof do
+    OracleDataSetView.First;
+    while not OracleDataSetView.Eof do
     begin
       userInfo :=
-      IntToStr(OracleDataSet1.FieldValues['id']) + '# ' +
-      OracleDataSet1.FieldValues['name'] + ',' +
-      OracleDataSet1.FieldValues['surname'] + ',' +
-      OracleDataSet1.FieldValues['patronymic'] + ',' +
-      OracleDataSet1.FieldValues['phone'];
+      IntToStr(OracleDataSetView.FieldValues['id']) + '# ' +
+      OracleDataSetView.FieldValues['name'] + ',' +
+      OracleDataSetView.FieldValues['surname'] + ',' +
+      OracleDataSetView.FieldValues['patronymic'] + ',' +
+      OracleDataSetView.FieldValues['phone'];
       //
       ListBoxUsers.Items.Add(userInfo);
-      userIdArray[i] := OracleDataSet1.FieldValues['id'];
+      userIdArray[i] := OracleDataSetView.FieldValues['id'];
       i := i + 1;
       //
-      OracleDataSet1.Next;
+      OracleDataSetView.Next;
     end;
  end;
 end;
@@ -103,34 +104,34 @@ begin
   counntry := LabeledEditCountry.Text;
 
   //SELECT FROM DB
-  with OracleDataSet1 do
+  with OracleDataSetView do
   begin
-    OracleDataSet1.Active:=false;
-    OracleDataSet1.SQL.Clear;
-    OracleDataSet1.SQL.Add('select t.id, t.name as T_NAME, t.price, c."name" as C_NAME from TRVL_TOURS t ');
-    OracleDataSet1.SQL.Add('left join TRVL_COUNTRY c ');
-    OracleDataSet1.SQL.Add('on t.id_country = c.id ');
-    OracleDataSet1.SQL.Add('where upper(c."name") like upper(');
-    OracleDataSet1.SQL.Add('''%'+counntry+'%''');
-    OracleDataSet1.SQL.Add(')');
-    OracleDataSet1.Active:=true;
+    OracleDataSetView.Active:=false;
+    OracleDataSetView.SQL.Clear;
+    OracleDataSetView.SQL.Add('select t.id, t.name as T_NAME, t.price, c."name" as C_NAME from TRVL_TOURS t ');
+    OracleDataSetView.SQL.Add('left join TRVL_COUNTRY c ');
+    OracleDataSetView.SQL.Add('on t.id_country = c.id ');
+    OracleDataSetView.SQL.Add('where upper(c."name") like upper(');
+    OracleDataSetView.SQL.Add('''%'+counntry+'%''');
+    OracleDataSetView.SQL.Add(')');
+    OracleDataSetView.Active:=true;
 
     ListBoxTours.Clear;
     i := 0;
-    OracleDataSet1.First;
-    while not OracleDataSet1.Eof do
+    OracleDataSetView.First;
+    while not OracleDataSetView.Eof do
     begin
       rowStr :=
-      IntToStr(OracleDataSet1.FieldValues['id']) + '# ' +
-      OracleDataSet1.FieldValues['T_NAME'] + ',' +
-      IntToStr(OracleDataSet1.FieldValues['price']) + ' руб.,' +
-      OracleDataSet1.FieldValues['C_NAME'];
+      IntToStr(OracleDataSetView.FieldValues['id']) + '# ' +
+      OracleDataSetView.FieldValues['T_NAME'] + ',' +
+      IntToStr(OracleDataSetView.FieldValues['price']) + ' руб.,' +
+      OracleDataSetView.FieldValues['C_NAME'];
       //
       ListBoxTours.Items.Add(rowStr);
-      tourIdArray[i] := OracleDataSet1.FieldValues['id'];
+      tourIdArray[i] := OracleDataSetView.FieldValues['id'];
       i := i + 1;
       //
-      OracleDataSet1.Next;
+      OracleDataSetView.Next;
     end;
  end;
 end;
@@ -145,24 +146,18 @@ end;
 
 procedure TFormRegisterSale.Button1Click(Sender: TObject);
 begin
-  with OracleDataSet1 do
+  with OracleDataSetEdit do
   begin
-    OracleDataSet1.Active:=false;
-    OracleDataSet1.SQL.Clear;
-    OracleDataSet1.SQL.Add('INSERT INTO TRVL_SALES ("date", "count", id_tour, id_client, id_employee)');
-    OracleDataSet1.SQL.Add('VALUES (');
-    OracleDataSet1.SQL.Add('CURRENT_TIMESTAMP');
-    OracleDataSet1.SQL.Add(',');
-    OracleDataSet1.SQL.Add(LabeledEditCount.Text);
-    OracleDataSet1.SQL.Add(',');
-    OracleDataSet1.SQL.Add(IntToStr(selectedTourId));
-    OracleDataSet1.SQL.Add(',');
-    OracleDataSet1.SQL.Add(IntToStr(selectedUserId));
-    OracleDataSet1.SQL.Add(',');
-    OracleDataSet1.SQL.Add(LabeledEditEmployeeId.Text);
-    OracleDataSet1.SQL.Add(')');
-    OracleDataSet1.Session.Commit;
-    OracleDataSet1.Active:=true;
+    OracleDataSetEdit.Active:=false;
+    OracleDataSetEdit.SQL.Clear;
+    OracleDataSetEdit.SetVariable('V_COUNT', StrToInt(LabeledEditCount.Text));
+    OracleDataSetEdit.SetVariable('V_ID_TOUR', selectedTourId);
+    OracleDataSetEdit.SetVariable('V_ID_CLIENT', selectedUserId);
+    OracleDataSetEdit.SetVariable('V_ID_EMPLOYEE', StrToInt(LabeledEditEmployeeId.Text));
+    OracleDataSetEdit.SQL.Add('INSERT INTO TRVL_SALES ("date", "count", id_tour, id_client, id_employee)');
+    OracleDataSetEdit.SQL.Add('VALUES (CURRENT_TIMESTAMP, :V_COUNT, :V_ID_TOUR, :V_ID_CLIENT, :V_ID_EMPLOYEE)');
+    OracleDataSetEdit.Session.Commit;
+    OracleDataSetEdit.Active:=true;
  end;
 end;
 

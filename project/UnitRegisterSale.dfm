@@ -165,7 +165,27 @@ object FormRegisterSale: TFormRegisterSale
       Text = #1043#1088#1077#1094#1080#1103
     end
   end
-  object OracleDataSet1: TOracleDataSet
+  object OracleDataSetEdit: TOracleDataSet
+    SQL.Strings = (
+      'select t.*, t.rowid from TRVL_CLIENT t')
+    Variables.Data = {
+      0300000004000000080000003A565F434F554E54030000000000000000000000
+      0A0000003A565F49445F544F55520300000000000000000000000C0000003A56
+      5F49445F434C49454E540300000000000000000000000E0000003A565F49445F
+      454D504C4F594545030000000000000000000000}
+    SequenceField.Field = 'ID'
+    SequenceField.Sequence = 'TRVL_CLIENT_ID_SEQ'
+    SequenceField.ApplyMoment = amOnNewRecord
+    QBEDefinition.QBEFieldDefs = {
+      0400000006000000020000004944010000000000040000004E414D4501000000
+      0000070000005355524E414D450100000000000A000000504154524F4E594D49
+      430100000000000500000050484F4E450100000000000800000050415353504F
+      5254010000000000}
+    Session = FormMain.OracleSession1
+    Left = 232
+    Top = 464
+  end
+  object OracleDataSetView: TOracleDataSet
     SQL.Strings = (
       'select t.*, t.rowid from TRVL_CLIENT t')
     SequenceField.Field = 'ID'
@@ -178,6 +198,6 @@ object FormRegisterSale: TFormRegisterSale
       5254010000000000}
     Session = FormMain.OracleSession1
     Left = 232
-    Top = 464
+    Top = 512
   end
 end
