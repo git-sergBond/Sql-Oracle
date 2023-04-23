@@ -205,6 +205,10 @@ object FormRefunds: TFormRefunds
   object OracleDataSetUpdate: TOracleDataSet
     SQL.Strings = (
       'select t.*, t.rowid from TRVL_REFUNDS t')
+    Variables.Data = {
+      0300000003000000090000003A565F524541534F4E0500000000000000000000
+      00050000003A565F4944030000000000000000000000080000003A565F434F55
+      4E54030000000000000000000000}
     SequenceField.Field = 'ID'
     SequenceField.Sequence = 'TRVL_CLIENT_ID_SEQ'
     SequenceField.ApplyMoment = amOnNewRecord
@@ -215,13 +219,13 @@ object FormRefunds: TFormRefunds
       4F5945450100000000000700000049445F53414C450100000000000600000052
       4541534F4E010000000000}
     Session = FormMain.OracleSession1
-    Active = True
     Left = 944
     Top = 224
   end
   object OracleDataSetDelete: TOracleDataSet
     SQL.Strings = (
       'select t.*, t.rowid from TRVL_REFUNDS t')
+    Variables.Data = {0300000001000000050000003A565F4944030000000000000000000000}
     SequenceField.Field = 'ID'
     SequenceField.Sequence = 'TRVL_CLIENT_ID_SEQ'
     SequenceField.ApplyMoment = amOnNewRecord
@@ -232,7 +236,6 @@ object FormRefunds: TFormRefunds
       4F5945450100000000000700000049445F53414C450100000000000600000052
       4541534F4E010000000000}
     Session = FormMain.OracleSession1
-    Active = True
     Left = 944
     Top = 272
   end
