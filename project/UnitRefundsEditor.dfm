@@ -147,6 +147,7 @@ object FormRefunds: TFormRefunds
         Height = 25
         Caption = #1054#1073#1085#1086#1074#1080#1090#1100
         TabOrder = 1
+        OnClick = ButtonUpdateClick
       end
       object LabeledEditReason: TLabeledEdit
         Left = 8
@@ -214,8 +215,8 @@ object FormRefunds: TFormRefunds
       4541534F4E010000000000}
     Session = FormMain.OracleSession1
     Active = True
-    Left = 768
-    Top = 8
+    Left = 944
+    Top = 224
   end
   object OracleDataSetDelete: TOracleDataSet
     SQL.Strings = (
@@ -231,7 +232,7 @@ object FormRefunds: TFormRefunds
       4541534F4E010000000000}
     Session = FormMain.OracleSession1
     Active = True
-    Left = 816
-    Top = 8
+    Left = 944
+    Top = 272
   end
 end

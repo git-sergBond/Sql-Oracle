@@ -27,6 +27,7 @@ type
     OracleDataSetDelete: TOracleDataSet;
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
     procedure ButtonDeleteClick(Sender: TObject);
+    procedure ButtonUpdateClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -58,6 +59,32 @@ begin
     OracleDataSetDelete.ExecSQL;
     OracleDataSetDelete.Session.Commit;
     OracleDataSetDelete.Active:=true;
+
+    OracleDataSetView.Active:=false;
+    OracleDataSetView.SQL.Clear;
+    OracleDataSetView.SQL.Add('select t.*, t.rowid from TRVL_REFUNDS t');
+    OracleDataSetView.Active:=true;
+end;
+
+procedure TFormRefunds.ButtonUpdateClick(Sender: TObject);
+var id : string;
+begin
+    id :=  DBTextId.Caption;
+    OracleDataSetUpdate.Active:=false;
+    OracleDataSetUpdate.SQL.Clear;
+    OracleDataSetUpdate.SQL.Add('UPDATE TRVL_REFUNDS t SET');
+    OracleDataSetUpdate.SQL.Add(' t."count" = ');
+    OracleDataSetUpdate.SQL.Add(LabeledEditCount.Text);
+    OracleDataSetUpdate.SQL.Add(',');
+    OracleDataSetUpdate.SQL.Add(' reason = ');
+    OracleDataSetUpdate.SQL.Add('''');
+    OracleDataSetUpdate.SQL.Add(LabeledEditReason.Text);
+    OracleDataSetUpdate.SQL.Add('''');
+    OracleDataSetUpdate.SQL.Add(' WHERE t.id = ');
+    OracleDataSetUpdate.SQL.Add(id);
+    OracleDataSetUpdate.ExecSQL;
+    OracleDataSetUpdate.Session.Commit;
+    OracleDataSetUpdate.Active:=true;
 
     OracleDataSetView.Active:=false;
     OracleDataSetView.SQL.Clear;
