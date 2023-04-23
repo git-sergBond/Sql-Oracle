@@ -1,3 +1,4 @@
 1. сделать variables
 2. сделать CRUD sales
 3. сделать CRUD refunds
+4. Починить форму заказа тура
