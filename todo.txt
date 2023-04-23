@@ -1,2 +1,3 @@
-1. обновить значения sequence в migrations
-7. сделать отчет
+1. сделать variables
+2. сделать CRUD sales
+3. сделать CRUD refunds
