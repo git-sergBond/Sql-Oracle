@@ -100,6 +100,7 @@ object FormCreateRefund: TFormCreateRefund
       Height = 25
       Caption = #1044#1086#1073#1072#1074#1080#1090#1100
       TabOrder = 1
+      OnClick = ButtonCreateClick
     end
     object LabeledEditEmployeeId: TLabeledEdit
       Left = 8
@@ -134,6 +135,12 @@ object FormCreateRefund: TFormCreateRefund
       Left = 179
       Top = 142
       Width = 125
+      Height = 13
+    end
+    object LabelTourID: TLabel
+      Left = 300
+      Top = 142
+      Width = 3
       Height = 13
     end
     object ListBoxSales: TListBox

@@ -27,9 +27,11 @@ type
     OracleDataSetViewUser: TOracleDataSet;
     OracleDataSetViewSale: TOracleDataSet;
     LabeledEditReason: TLabeledEdit;
+    LabelTourID: TLabel;
     procedure ButtonFindUserClick(Sender: TObject);
     procedure ButtonSelectUserClick(Sender: TObject);
     procedure Button4Click(Sender: TObject);
+    procedure ButtonCreateClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -40,8 +42,10 @@ var
   FormCreateRefund: TFormCreateRefund;
   userIdArray : array[0..100] of integer;
   saleIdArray : array[0..100] of integer;
+  tourIdArray : array[0..100] of integer;
   selectedUserId : integer;
   selectedSaleId : integer;
+  selectedTourId : integer;
 
 implementation
 
@@ -119,6 +123,7 @@ LabelUserID.Caption := 'Client ID: ' + IntToStr(selectedUserId);
       //
       ListBoxSales.Items.Add(saleInfo);
       saleIdArray[i] := OracleDataSetViewSale.FieldValues['id'];
+      tourIdArray[i] := OracleDataSetViewSale.FieldValues['id_tour'];
       i := i + 1;
       //
       OracleDataSetViewSale.Next;
@@ -130,8 +135,41 @@ procedure TFormCreateRefund.Button4Click(Sender: TObject);
 var index : integer;
 begin
 index := ListBoxSales.ItemIndex;
+
 selectedSaleId := saleIdArray[index];
 LabelSaleID.Caption := 'Sale ID: ' + IntToStr(selectedSaleId);
+
+selectedTourId := tourIdArray[index];
+LabelTourID.Caption := 'Tour ID: ' + IntToStr(selectedTourId);
+end;
+
+procedure TFormCreateRefund.ButtonCreateClick(Sender: TObject);
+begin
+  with OracleDataSetInsert do
+  begin
+    OracleDataSetInsert.Active:=false;
+    OracleDataSetInsert.SQL.Clear;
+    OracleDataSetInsert.SQL.Add('INSERT INTO TRVL_REFUNDS ("date", "count", id_tour, id_client, id_sale, id_employee, reason)');
+    OracleDataSetInsert.SQL.Add('VALUES (');
+    OracleDataSetInsert.SQL.Add('CURRENT_TIMESTAMP');
+    OracleDataSetInsert.SQL.Add(',');
+    OracleDataSetInsert.SQL.Add(LabeledEditCount.Text);
+    OracleDataSetInsert.SQL.Add(',');
+    OracleDataSetInsert.SQL.Add(IntToStr(selectedTourId));
+    OracleDataSetInsert.SQL.Add(',');
+    OracleDataSetInsert.SQL.Add(IntToStr(selectedUserId));
+    OracleDataSetInsert.SQL.Add(',');
+    OracleDataSetInsert.SQL.Add(IntToStr(selectedSaleId));
+    OracleDataSetInsert.SQL.Add(',');
+    OracleDataSetInsert.SQL.Add(LabeledEditEmployeeId.Text);
+    OracleDataSetInsert.SQL.Add(',');
+    OracleDataSetInsert.SQL.Add('''');
+    OracleDataSetInsert.SQL.Add(LabeledEditReason.Text);
+    OracleDataSetInsert.SQL.Add('''');
+    OracleDataSetInsert.SQL.Add(')');
+    OracleDataSetInsert.Session.Commit;
+    OracleDataSetInsert.Active:=true;
+ end;
 end;
 
 end.
