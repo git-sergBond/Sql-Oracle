@@ -41,16 +41,18 @@ FormRegisterSale.Show;
 end;
 
 procedure TFormSales.ButtonDeleteClick(Sender: TObject);
+var id : string;
 begin
-with OracleDataSet1 do
-  begin
+    id :=  DBTextId.Caption;
     OracleDataSet1.Active:=false;
     OracleDataSet1.SQL.Clear;
-    OracleDataSet1.SQL.Add('DELETE FROM TRVL_SALES WHERE ID = ' + DBTextId.Caption);
+    OracleDataSet1.SQL.Add('DELETE FROM TRVL_SALES t WHERE t.id = ');
+    OracleDataSet1.SQL.Add(id);
     OracleDataSet1.ExecSQL;
     OracleDataSet1.Session.Commit;
+    OracleDataSet1.SQL.Clear;
+    OracleDataSet1.SQL.Add('select t.*, t.rowid from TRVL_SALES t');
     OracleDataSet1.Active:=true;
- end;
 end;
 
 end.

@@ -1,6 +1,6 @@
 object FormSales: TFormSales
-  Left = 721
-  Top = 497
+  Left = 727
+  Top = 505
   Width = 727
   Height = 347
   Caption = #1047#1072#1082#1072#1079#1099
