@@ -167,6 +167,7 @@ object FormRefunds: TFormRefunds
       Height = 25
       Caption = #1057#1076#1077#1083#1072#1090#1100' '#1074#1086#1079#1074#1088#1072#1090
       TabOrder = 1
+      OnClick = ButtonCreateRefundClick
     end
     object ButtonDelete: TButton
       Left = 8

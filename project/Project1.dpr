@@ -8,7 +8,8 @@ uses
   UnitToursEditor in 'UnitToursEditor.pas' {FormTours},
   UnitSalesEditor in 'UnitSalesEditor.pas' {FormSales},
   UnitRefundsEditor in 'UnitRefundsEditor.pas' {FormRefunds},
-  UnitRegisterSale in 'UnitRegisterSale.pas' {FormRegisterSale};
+  UnitRegisterSale in 'UnitRegisterSale.pas' {FormRegisterSale},
+  UnitCreateRefund in 'UnitCreateRefund.pas' {FormCreateRefund};
 
 {$R *.res}
 
@@ -21,5 +22,6 @@ begin
   Application.CreateForm(TFormSales, FormSales);
   Application.CreateForm(TFormRefunds, FormRefunds);
   Application.CreateForm(TFormRegisterSale, FormRegisterSale);
+  Application.CreateForm(TFormCreateRefund, FormCreateRefund);
   Application.Run;
 end.

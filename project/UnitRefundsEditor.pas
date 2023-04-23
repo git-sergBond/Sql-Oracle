@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, DB, OracleData, Grids, DBGrids, ExtCtrls, DBCtrls;
+  Dialogs, StdCtrls, DB, OracleData, Grids, DBGrids, ExtCtrls, DBCtrls,
+  UnitCreateRefund;
 
 type
   TFormRefunds = class(TForm)
@@ -28,6 +29,7 @@ type
     procedure DataSource1DataChange(Sender: TObject; Field: TField);
     procedure ButtonDeleteClick(Sender: TObject);
     procedure ButtonUpdateClick(Sender: TObject);
+    procedure ButtonCreateRefundClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -90,6 +92,11 @@ begin
     OracleDataSetView.SQL.Clear;
     OracleDataSetView.SQL.Add('select t.*, t.rowid from TRVL_REFUNDS t');
     OracleDataSetView.Active:=true;
+end;
+
+procedure TFormRefunds.ButtonCreateRefundClick(Sender: TObject);
+begin
+FormCreateRefund.Show;
 end;
 
 end.
